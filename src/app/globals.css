@@ -41,3 +41,8 @@ a {
     color-scheme: dark;
   }
 } */
+.mainGrid {
+    padding-inline: 16px;
+    width: min(1412px, 100%);
+    margin-inline: auto;
+}
