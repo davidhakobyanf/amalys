@@ -2,19 +2,17 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import logo from '../../../../public/images/logo.svg';
+import menuLogo from '../../../../public/icons/chevron-up.svg';
 import searchIcon from '../../../../public/icons/searchIcon.svg';
 import styles from './Header.module.scss';
 import PeopleIcon from '../icons/PeopleIcon';
 import BasketIcon from '../icons/BasketIcon';
 import Search from '../Search/Search';
-import { useEffect } from 'react';
 import { searchUtils } from '../utils/searchUtils';
 
 const Header = () => {
     const { searchCheck, handleCheck } = searchUtils();
-    useEffect(() => {
-        console.log(searchCheck, 'searchCheck');
-    }, [searchCheck]);
+
     return (
         <header className={`mainGrid ${styles.header}`}>
             <div className={styles.header__container}>
@@ -22,6 +20,20 @@ const Header = () => {
                     <Link href='/' className={styles.logoContainer}>
                         <Image src={logo} className={styles.logo} alt='logo' />
                     </Link>
+                    <div className={styles.nav__wrapper}>
+                        <Link href='aboutUs'>
+                            <p>О нас</p>
+                        </Link>
+                        <div className={styles.menu__wrapper}>
+                            <p>Меню</p> <Image src={menuLogo} alt='menuLogo' />
+                        </div>
+                        <Link href='contact'>
+                            <p>Контакты</p>
+                        </Link>
+                        <Link href='delivery-policy'>
+                            <p>Условия доставки</p>
+                        </Link>
+                    </div>
                 </div>
 
                 <div className={styles.header__contacts}>
@@ -38,6 +50,7 @@ const Header = () => {
                             <BasketIcon style={{ width: '24px', height: '24px' }} />
                         </Link>
                     </div>
+                    <p>8 992-225-55-12</p>
                 </div>
             </div>
         </header>
