@@ -13,7 +13,6 @@
 html,
 body {
     max-width: 100vw;
-    overflow-x: hidden;
 }
 
 /* body {
@@ -34,6 +33,7 @@ body {
 a {
     color: inherit;
     text-decoration: none;
+    cursor: pointer;
 }
 /* 
 @media (prefers-color-scheme: dark) {
@@ -43,6 +43,19 @@ a {
 } */
 .mainGrid {
     padding-inline: 16px;
-    width: min(1412px, 100%);
+    width: min(1920px, 100%);
     margin-inline: auto;
+}
+:root {
+    --yellow-color: #ffcc00;
+}
+@font-face {
+    font-family: 'FiraGO';
+    src: url('/fonts/FiraGO-Medium.woff2') format('woff2'), url('/fonts/FiraGO-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+body {
+    font-family: 'FiraGO', sans-serif;
 }
