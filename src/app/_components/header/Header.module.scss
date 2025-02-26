@@ -77,6 +77,10 @@
   display: flex;
   gap: 24px;
   margin-right: 39px;
+  a{
+    display: flex;
+    align-items: center;
+  }
   
   }
   .header__contacts__icons > * {

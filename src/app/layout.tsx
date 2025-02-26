@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import Header from './_components/(header)/_headers/Header';
+import Header from './_components/header/Header';
 
 export default function RootLayout({
     children,
