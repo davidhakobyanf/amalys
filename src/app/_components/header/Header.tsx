@@ -13,20 +13,12 @@ import Search from '../Search/Search';
 import { useSearch } from '../../_hooks/useSearch';
 import NavbarMobail from './NavbarMobail/NavbarMobail';
 import { menuData } from '@/app/_moqk/moqk';
+import useMediaWidthOrientation from '@/app/_hooks/useMediaWidthOrientation';
 
 const Header = () => {
     const { searchCheck, handleCheck } = useSearch();
     const [isOpen, setIsOpen] = useState(false);
-    const [isMobile, setIsMobile] = useState(false);
-
-    useEffect(() => {
-        const handleResize = () => {
-            setIsMobile(window.innerWidth < 1200);
-        };
-        handleResize();
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
+    const { isMobile } = useMediaWidthOrientation();
 
     return (
         <header className={`mainGrid ${styles.header}`}>
