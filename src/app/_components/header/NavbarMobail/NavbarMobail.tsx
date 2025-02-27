@@ -1,13 +1,13 @@
 'use client';
 import { FC } from 'react';
+import { useSearch } from '../../../_hooks/useSearch';
+import { menuData } from '@/app/_moqk/moqk';
 import Image from 'next/image';
 import closeIcon from '../../../../../public/icons/x.svg';
 import Search from '../../Search/Search';
 import Link from 'next/link';
 import menuLogo from '../../../../../public/icons/chevron-up.svg';
-import { useSearch } from '../../../_hooks/useSearch';
 import styles from './NavbarMobail.module.scss';
-import { menuData } from '@/app/_moqk/moqk';
 
 interface NavbarMobailProps {
     isOpen: boolean;

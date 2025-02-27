@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
-
-const useMediaWidthOrientation = () => {
-    const [isMobile, setIsMobile] = useState(false);
+interface useMediaWidthOrientationType {
+    isMobile: boolean;
+}
+const useMediaWidthOrientation = (): useMediaWidthOrientationType => {
+    const [isMobile, setIsMobile] = useState<boolean>(false);
 
     useEffect(() => {
         const handleResize = () => {

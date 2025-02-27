@@ -6,14 +6,14 @@ import Hamburger from 'hamburger-react';
 import logo from '../../../../public/images/logo.svg';
 import menuLogo from '../../../../public/icons/chevron-up.svg';
 import searchIcon from '../../../../public/icons/searchIcon.svg';
-import styles from './Header.module.scss';
 import PeopleIcon from '../icons/PeopleIcon';
 import BasketIcon from '../icons/BasketIcon';
 import Search from '../Search/Search';
-import { useSearch } from '../../_hooks/useSearch';
 import NavbarMobail from './NavbarMobail/NavbarMobail';
-import { menuData } from '@/app/_moqk/moqk';
 import useMediaWidthOrientation from '@/app/_hooks/useMediaWidthOrientation';
+import { menuData } from '@/app/_moqk/moqk';
+import { useSearch } from '../../_hooks/useSearch';
+import styles from './Header.module.scss';
 
 const Header = () => {
     const { searchCheck, handleCheck } = useSearch();
