@@ -12,6 +12,7 @@ import BasketIcon from '../icons/BasketIcon';
 import Search from '../Search/Search';
 import { useSearch } from '../../_hooks/useSearch';
 import NavbarMobail from './NavbarMobail/NavbarMobail';
+import { menuData } from '@/app/_moqk/moqk';
 
 const Header = () => {
     const { searchCheck, handleCheck } = useSearch();
@@ -35,18 +36,19 @@ const Header = () => {
                         <Image src={logo} className={styles.logo} alt='logo' />
                     </Link>
                     <ul className={styles.nav__wrapper}>
-                        <li>
-                            <Link href='aboutUs'>О нас</Link>
-                        </li>
-                        <li className={styles.menu__wrapper}>
-                            Меню <Image src={menuLogo} alt='menuLogo' />
-                        </li>
-                        <li>
-                            <Link href='contact'>Контакты</Link>
-                        </li>
-                        <li>
-                            <Link href='delivery-policy'>Условия доставки</Link>
-                        </li>
+                        {menuData.map(({ href, label, button }) =>
+                            button === true ? (
+                                <li key={href} className={styles.menu__wrapper}>
+                                    {label} <Image src={menuLogo} alt={menuLogo} />
+                                </li>
+                            ) : (
+                                <li>
+                                    <Link key={href} href={href || '#'}>
+                                        {label}
+                                    </Link>
+                                </li>
+                            ),
+                        )}
                     </ul>
                 </div>
                 <div className={styles.header__contacts}>

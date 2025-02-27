@@ -7,6 +7,7 @@ import Link from 'next/link';
 import menuLogo from '../../../../../public/icons/chevron-up.svg';
 import { useSearch } from '../../../_hooks/useSearch';
 import styles from './NavbarMobail.module.scss';
+import { menuData } from '@/app/_moqk/moqk';
 
 interface NavbarMobailProps {
     isOpen: boolean;
@@ -27,18 +28,19 @@ const NavbarMobail: FC<NavbarMobailProps> = ({ isOpen, setIsOpen }) => {
                 <div>
                     <Search variant='mobailSearch' searchCheck={searchCheck} />
                     <ul className={styles.navbar__mobail__wrapper}>
-                        <li>
-                            <Link href='aboutUs'>О нас</Link>
-                        </li>
-                        <li className={styles.menu__wrapper}>
-                            <p>Меню</p> <Image src={menuLogo} alt='menuLogo' />
-                        </li>
-                        <li>
-                            <Link href='contact'>Контакты</Link>
-                        </li>
-                        <li>
-                            <Link href='delivery-policy'>Условия доставки</Link>
-                        </li>
+                        {menuData.map(({ href, label, button }) =>
+                            button === true ? (
+                                <li key={href} className={styles.menu__wrapper}>
+                                    {label} <Image src={menuLogo} alt={menuLogo} />
+                                </li>
+                            ) : (
+                                <li>
+                                    <Link key={href} href={href || '#'}>
+                                        {label}
+                                    </Link>
+                                </li>
+                            ),
+                        )}
                     </ul>
                 </div>
             </div>
