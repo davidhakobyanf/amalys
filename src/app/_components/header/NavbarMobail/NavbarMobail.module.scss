@@ -1,0 +1,21 @@
+.navbar__mobail {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 40%;
+  height: 100vh;
+  background: var(--yellow-color);
+  transition: right 0.5s ease-in-out;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.navbar__mobail.active {
+  right: 0;
+}
+
+.navbar__mobail__closeIcon{
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}

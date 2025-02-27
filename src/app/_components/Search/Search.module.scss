@@ -43,11 +43,9 @@
   .headerSearch {
     width: 225px;
   }
-  
 }
-@media screen and (max-width: 1050px) {
+@media screen and (max-width: 1024px) {
   .headerSearch {
-    width: 165px;
+    display: none;
   }
-  
 }

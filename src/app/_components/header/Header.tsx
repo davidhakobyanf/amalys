@@ -1,6 +1,8 @@
 'use client';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import Hamburger from 'hamburger-react';
 import logo from '../../../../public/images/logo.svg';
 import menuLogo from '../../../../public/icons/chevron-up.svg';
 import searchIcon from '../../../../public/icons/searchIcon.svg';
@@ -9,9 +11,21 @@ import PeopleIcon from '../icons/PeopleIcon';
 import BasketIcon from '../icons/BasketIcon';
 import Search from '../Search/Search';
 import { searchUtils } from '../utils/searchUtils';
+import NavbarMobail from './NavbarMobail/NavbarMobail';
 
 const Header = () => {
     const { searchCheck, handleCheck } = searchUtils();
+    const [isOpen, setIsOpen] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 1200);
+        };
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     return (
         <header className={`mainGrid ${styles.header}`}>
@@ -35,7 +49,6 @@ const Header = () => {
                         </Link>
                     </div>
                 </div>
-
                 <div className={styles.header__contacts}>
                     <div className={styles.header__contacts__icons}>
                         {searchCheck ? (
@@ -49,11 +62,16 @@ const Header = () => {
                         <Link href='basket'>
                             <BasketIcon style={{ width: '24px', height: '24px' }} />
                         </Link>
+                        <div className={styles.hamburger__icon}>
+                            <Hamburger toggled={isOpen} duration={0.8} size={20} toggle={setIsOpen} />
+                        </div>
                     </div>
                     <p>8 992-225-55-12</p>
                 </div>
             </div>
+            {isMobile && <NavbarMobail isOpen={isOpen} setIsOpen={setIsOpen} />}
         </header>
     );
 };
+
 export default Header;
