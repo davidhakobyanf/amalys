@@ -28,16 +28,14 @@ const NavbarMobail: FC<NavbarMobailProps> = ({ isOpen, setIsOpen }) => {
                 <div>
                     <Search variant='mobailSearch' searchCheck={searchCheck} />
                     <ul className={styles.navbar__mobail__wrapper}>
-                        {menuData.map(({ href, label, button }) =>
-                            button === true ? (
-                                <li key={href} className={styles.menu__wrapper}>
-                                    {label} <Image src={menuLogo} alt={menuLogo} />
+                        {menuData.map(({ href, label, icon }) =>
+                            icon ? (
+                                <li key={label} className={styles.menu__wrapper}>
+                                    {label} <Image src={icon} alt={icon} />
                                 </li>
                             ) : (
-                                <li>
-                                    <Link key={href} href={href || '#'}>
-                                        {label}
-                                    </Link>
+                                <li key={href}>
+                                    <Link href={href || '#'}>{label}</Link>
                                 </li>
                             ),
                         )}
