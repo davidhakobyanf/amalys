@@ -92,7 +92,39 @@
 @media screen and (max-width:1600px) {
   .logoContainer{
     .logo{
-       height: 150px !important; 
+       height: 150px;
     }
   }
+}
+@media screen and (max-width:1400px) {
+  .header__contacts{
+    padding-right: 0px;
+    p{
+      font-size: 16px;
+    }
+  }
+  .logoContainer{
+    padding-left: 0px;
+    .logo{  
+      width:100px;
+    }
+  }
+ 
+}
+@media screen and (max-width:1000px) {
+  .header__contacts{
+    .header__contacts__icons{
+      display: flex;
+      gap: 15px;
+      margin-right: 39px;
+    }
+  }
+  .nav__wrapper{
+    width: 350px;
+    margin-left: 15px;
+  }
+}
+
+@media screen and (max-width:900px) {
+
 }
