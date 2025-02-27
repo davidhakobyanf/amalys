@@ -3,7 +3,7 @@ import React, { FC, useState } from 'react';
 import styles from './Search.module.scss';
 
 interface SearchProps {
-    variant: 'headerSearch' | 'mainSearch';
+    variant: 'headerSearch' | 'mobailSearch';
     searchCheck?: boolean;
     handleCheck?: () => void;
 }

@@ -39,13 +39,45 @@
   background-size: contain;
   cursor: pointer;
 }
+.mobailSearch{
+  position: relative;
+  display: none;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 10px 40px;
+  width: 100%;
+  height: 39px;
+}
+.mobailSearch input {
+  flex: 1;
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: black;
+  line-height: 19.6px;
+}
+.mobailSearch input:focus {
+  outline: none;
+}
+.mobailSearch::before {
+  content: url(/icons/searchIcon.svg);
+  position: absolute;
+  left: 8px;
+  width: 24px;
+  height: 24px;
+}
 @media screen and (max-width: 1200px) {
   .headerSearch {
     width: 225px;
   }
+ 
 }
 @media screen and (max-width: 1024px) {
   .headerSearch {
     display: none;
+  }
+  .mobailSearch{
+    display: flex;
   }
 }

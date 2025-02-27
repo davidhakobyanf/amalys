@@ -8,6 +8,9 @@
   transition: right 0.5s ease-in-out;
   z-index: 1000;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .navbar__mobail.active {
@@ -18,4 +21,45 @@
   width: 100%;
   display: flex;
   justify-content: end;
+}
+.navbar__mobail__wrapper {
+  width: 100%;
+  gap: 32px;
+  display: flex;
+  padding-top: 32px;
+  align-items: start;
+  flex-direction: column;
+  .menu__wrapper {
+    display: flex;
+    align-items: center;
+
+  }
+  > * {
+    color: #000;
+    font-family: 'FiraGO', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    cursor: pointer;
+
+    > * {
+      color: inherit; 
+      font-family: inherit;
+      font-size: inherit;
+      font-style: inherit;
+      font-weight: inherit;
+      line-height: inherit;
+
+    }
+  }
+}
+.navbar__mobail__contacts{
+  font-family: 'FiraGO', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 28.8px;
+  letter-spacing: 0%;
+  color: white;
+  cursor: pointer;
 }

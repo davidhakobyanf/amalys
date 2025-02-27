@@ -59,3 +59,7 @@ a {
 body {
     font-family: 'FiraGO', sans-serif;
 }
+ul,
+li {
+    all: unset;
+}

@@ -10,11 +10,11 @@ import styles from './Header.module.scss';
 import PeopleIcon from '../icons/PeopleIcon';
 import BasketIcon from '../icons/BasketIcon';
 import Search from '../Search/Search';
-import { searchUtils } from '../utils/searchUtils';
+import { useSearch } from '../../_hooks/useSearch';
 import NavbarMobail from './NavbarMobail/NavbarMobail';
 
 const Header = () => {
-    const { searchCheck, handleCheck } = searchUtils();
+    const { searchCheck, handleCheck } = useSearch();
     const [isOpen, setIsOpen] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
 
@@ -34,20 +34,20 @@ const Header = () => {
                     <Link href='/' className={styles.logoContainer}>
                         <Image src={logo} className={styles.logo} alt='logo' />
                     </Link>
-                    <div className={styles.nav__wrapper}>
-                        <Link href='aboutUs'>
-                            <p>О нас</p>
-                        </Link>
-                        <div className={styles.menu__wrapper}>
-                            <p>Меню</p> <Image src={menuLogo} alt='menuLogo' />
-                        </div>
-                        <Link href='contact'>
-                            <p>Контакты</p>
-                        </Link>
-                        <Link href='delivery-policy'>
-                            <p>Условия доставки</p>
-                        </Link>
-                    </div>
+                    <ul className={styles.nav__wrapper}>
+                        <li>
+                            <Link href='aboutUs'>О нас</Link>
+                        </li>
+                        <li className={styles.menu__wrapper}>
+                            Меню <Image src={menuLogo} alt='menuLogo' />
+                        </li>
+                        <li>
+                            <Link href='contact'>Контакты</Link>
+                        </li>
+                        <li>
+                            <Link href='delivery-policy'>Условия доставки</Link>
+                        </li>
+                    </ul>
                 </div>
                 <div className={styles.header__contacts}>
                     <div className={styles.header__contacts__icons}>
@@ -66,7 +66,7 @@ const Header = () => {
                             <Hamburger toggled={isOpen} duration={0.8} size={20} toggle={setIsOpen} />
                         </div>
                     </div>
-                    <p>8 992-225-55-12</p>
+                    <p>+7 (985) 648-66-81</p>
                 </div>
             </div>
             {isMobile && <NavbarMobail isOpen={isOpen} setIsOpen={setIsOpen} />}
