@@ -21,12 +21,33 @@
 }
 
 .center__content{
-  width: 50%;
+  max-width: 1089px;
   height: 70%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  border: 1px solid;
+  @-webkit-keyframes shake {
+    0%, 100% { -webkit-transform: translateX(0); }
+    25% { -webkit-transform: translateX(-5px); }
+    50% { -webkit-transform: translateX(5px); }
+    75% { -webkit-transform: translateX(-5px); }
+}
+
+  .saladIcon {
+    animation-name: shake;
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+    -webkit-animation-iteration-count: infinite;
+  }
+
+    p{
+      font-family: 'Neucha', cursive;
+      font-weight: 400;
+      font-size: 78px;
+      line-height: 90.48px;
+      letter-spacing: 0%;
+    }
+
 }
 .left__food__image{
   scale: .6;
@@ -42,6 +63,148 @@
   top: -150px;
   right: -376px;
 }
-.saladIcon{
-
+@media screen and (max-width: 1200px) {
+  .center__content{
+    flex-direction: column-reverse;
+    .saladIcon{
+      width: 400px;
+    }
+    p{
+      width: 574px;
+      line-height: 56px;
+      font-size: 53px;
+    }
+  }
+}
+@media screen and (max-width: 1024px) {
+  .center__content{
+    .saladIcon{
+      width: 300px;
+    }
+    p{
+      padding-top: 73px;
+      width: 400px;
+      font-size: 45px;
+      text-align: center;
+    }
+  }
+  .left__food__image{
+    scale: .5;
+    position: absolute;
+    top: -200px;
+    left: -376px;
+  
+  
+  }
+  .right__food__image{
+    scale: .5;
+    position: absolute;
+    top: -200px;
+    right: -376px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .center__content{
+    .saladIcon{
+      width: 275px;
+    }
+    p{
+      padding-top: 73px;
+      width: 400px;
+      font-size: 45px;
+      text-align: center;
+    }
+  }
+  .left__food__image{
+    scale: .4;
+    position: absolute;
+    top: -200px;
+    left: -376px;
+  
+  
+  }
+  .right__food__image{
+    scale: .4;
+    position: absolute;
+    top: -200px;
+    right: -376px;
+  }
+}
+@media screen and (max-width: 637px) {
+  .center__content{
+    .saladIcon{
+      width: 215px;
+      height: fit-content;
+    }
+    p{
+      width: 326px;
+      font-size: 36px;
+    }
+  }
+  .left__food__image{
+    scale: .3;
+    position: absolute;
+    top: -220px;
+    left: -402px
+  
+  
+  }
+  .right__food__image{
+    scale: .3;
+    position: absolute;
+    top: -220px;
+    right: -405px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .center__content{
+    gap: 25px;
+    .saladIcon{
+      width: 180px;
+      height: fit-content;
+    }
+    p{
+      width: 216px;
+      font-size: 26px;
+      line-height:40px;
+      padding-top: 20px;
+    }
+  }
+  .left__food__image{
+    scale: .3;
+    position: absolute;
+    top: -215px;
+    left: -414px
+  
+  
+  }
+  .right__food__image{
+    scale: .3;
+    position: absolute;
+    top: -215px;
+    right: -411px;
+  }
+}
+@media screen and (max-width:375px){
+  .center__content{
+    gap: 25px;
+    
+    p{
+      width: 170px;
+      font-size: 26px;
+      line-height:40px;
+      padding-top: 85px;
+    }
+  }
+  .header__content {
+    position: relative;
+    width: 100%;
+    height: 610px;
+  }
+  .right__food__image{
+    scale: .3;
+    position: absolute;
+    top: -215px;
+    right: -430px;
+  }
 }
