@@ -12,13 +12,30 @@ import NavbarMobail from './NavbarMobail/NavbarMobail';
 import useMediaWidthOrientation from '@/app/_hooks/useMediaWidthOrientation';
 import { menuData } from '@/app/_moqk/moqk';
 import { useSearch } from '../../_hooks/useSearch';
-import styles from './Header.module.scss';
 import HeaderContent from './HomeHeader/HeaderContent';
-
+import usePathNavigate from '@/app/_hooks/usePathNavigate';
+import styles from './Header.module.scss';
+import cloudsLogo from '../../../../public/images/clouds.svg';
+import useDropdown from '@/app/_hooks/useDropDown';
+import DropDown from '../DropDown/DropDown';
+import { getAllCategories } from '@/service/public/allCategory';
+import { log } from 'console';
 const Header = () => {
     const { searchCheck, handleCheck } = useSearch();
     const [isOpen, setIsOpen] = useState(false);
-    const { isMobile } = useMediaWidthOrientation();
+    const { isMobile, isScrolled } = useMediaWidthOrientation();
+    const { isHomePage } = usePathNavigate();
+    const { openDropdown, handleDropdownToggle, dropdownRef } = useDropdown();
+    const [categories, setCategories] = useState<any[]>([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const { data } = await getAllCategories();
+            setCategories(data);
+        };
+        fetchData();
+    }, []);
+    console.log(categories, 'categories');
 
     return (
         <>
@@ -26,13 +43,31 @@ const Header = () => {
                 <div className={`mainGrid ${styles.header__container}`}>
                     <div className={styles.header__nav}>
                         <Link href='/' className={styles.logoContainer}>
-                            <Image src={logo} className={styles.logo} alt='logo' />
+                            {/* {isHomePage && (
+                                <Image
+                                    src={cloudsLogo}
+                                    alt='cloudsLogo'
+                                    className={`${styles.cloudLogo} ${isScrolled ? styles.hidden : ''}`}
+                                />
+                            )} */}
+                            <Image
+                                src={logo}
+                                style={{ background: isHomePage ? 'transparent' : 'white' }}
+                                className={styles.logo}
+                                alt='logo'
+                            />
                         </Link>
                         <ul className={styles.nav__wrapper}>
                             {menuData.map(({ href, label, icon }) =>
                                 icon ? (
-                                    <li key={label} className={styles.menu__wrapper}>
+                                    <li
+                                        key={label}
+                                        onClick={() => handleDropdownToggle(label)}
+                                        ref={dropdownRef}
+                                        className={styles.menu__wrapper}
+                                    >
                                         {label} <Image src={icon} alt={icon} />
+                                        {openDropdown === label && <DropDown>Content for {label}</DropDown>}
                                     </li>
                                 ) : (
                                     <li key={href}>
@@ -64,7 +99,7 @@ const Header = () => {
                 </div>
                 {isMobile && <NavbarMobail isOpen={isOpen} setIsOpen={setIsOpen} />}
             </header>
-            <HeaderContent />
+            {isHomePage && <HeaderContent />}
         </>
     );
 };
