@@ -7,12 +7,12 @@ import closeIcon from '../../../../../public/icons/x.svg';
 import Search from '../../Search/Search';
 import Link from 'next/link';
 import menuLogo from '../../../../../public/icons/chevron-up.svg';
-import styles from './NavbarMobail.module.scss';
 import useDropdown from "@/app/_hooks/useDropDown";
 import DropDown from "@/app/_components/DropDown/DropDown";
 import menuIconUp from '../../../../../public/icons/chevron-up.svg'
 import MobileDropDown from "@/app/_components/DropDown/MobileDropDown/MobileDropDown";
 import {NavbarMobailProps} from "@/app/_type/type";
+import styles from './NavbarMobail.module.scss';
 
 const NavbarMobail: FC<NavbarMobailProps> = ({ isOpen, setIsOpen,categories }) => {
     const handleCLose = () => {

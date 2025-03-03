@@ -2,6 +2,7 @@ import React from "react";
 
 export interface DropDownProps {
     children: React.ReactNode;
+    variant:'laptop' | 'mobail'
 
 }
 export interface Category {
@@ -15,7 +16,6 @@ export interface Category {
 
 export interface HeaderClientProps {
     categories: Category[];
-    variant:'laptop' | 'mobail'
 }
 export interface NavbarMobailProps  extends  HeaderClientProps{
     isOpen: boolean;

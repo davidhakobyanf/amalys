@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import styles from './DropDown.module.scss';
 import {DropDownProps} from "@/app/_type/type";
+import styles from './DropDown.module.scss';
 
 
 const DropDown: FC<DropDownProps> = ({ children,variant }) => {
