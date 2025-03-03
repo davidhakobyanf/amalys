@@ -22,12 +22,20 @@
   justify-content: end;
 }
 .navbar__mobail__wrapper {
-  width: 100%;
+  width: 100% ;
+  min-width: 326px;
+
   gap: 32px;
   display: flex;
   padding-top: 32px;
   align-items: start;
   flex-direction: column;
+  li{
+    width: 100%;
+    a{
+      width: 100% !important;
+    }
+  }
   .menu__wrapper {
     width: 100%;
     position: relative;
@@ -64,7 +72,7 @@
   color: white;
   cursor: pointer;
 }
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 376px) {
   .navbar__mobail{
     width: 100%;
   }

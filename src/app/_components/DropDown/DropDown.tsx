@@ -3,10 +3,10 @@ import styles from './DropDown.module.scss';
 import {DropDownProps} from "@/app/_type/type";
 
 
-const DropDown: FC<DropDownProps> = ({ children }) => {
+const DropDown: FC<DropDownProps> = ({ children,variant }) => {
     return (
-        <div className={styles.dropdown}>
-            <ul className={styles.dropdown__content}>{children}</ul>
+        <div className={styles[variant]}>
+            <ul className={styles[`${variant}__content`]}>{children}</ul>
         </div>
     );
 };

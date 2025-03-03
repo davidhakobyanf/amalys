@@ -1,4 +1,4 @@
-import menuIcon from '../../../public/icons/chevron-up.svg'; // Убираем `{}`
+import menuIcon from '../../../public/icons/chevron-down.svg'; // Убираем `{}`
 
 interface MenuDataTypes {
     label: string;

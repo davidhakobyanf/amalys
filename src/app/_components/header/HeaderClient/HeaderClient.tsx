@@ -14,12 +14,12 @@ import { menuData } from '@/app/_moqk/moqk';
 import { useSearch } from '../../../_hooks/useSearch';
 import HeaderContent from '@/app/_components/header/HeaderContent/HeaderContent';
 import usePathNavigate from '@/app/_hooks/usePathNavigate';
-import styles from '../Header.module.scss';
 import cloudsLogo from '../../../../../public/images/clouds.png';
 import useDropdown from '@/app/_hooks/useDropDown';
 import DropDown from '../../DropDown/DropDown';
 import { getAllCategories } from '@/service/public/allCategory';
 import {HeaderClientProps} from "@/app/_type/type";
+import styles from './HeaderClient.module.scss';
 
 
 const HeaderClient:FC<HeaderClientProps> = ({ categories }) => {
@@ -62,7 +62,7 @@ const HeaderClient:FC<HeaderClientProps> = ({ categories }) => {
                                         className={styles.menu__wrapper}
                                     >
                                         {label} <Image src={icon} alt={icon} />
-                                        {openDropdown === label && <DropDown>{categories.map(({id,name}) => <li key={id}>{name}</li>)}</DropDown>}
+                                        {openDropdown === label && <DropDown variant='laptop'>{categories.map(({id,name}) => <li key={id}>{name}</li>)}</DropDown>}
                                     </li>
                                 ) : (
                                     <li key={href}>

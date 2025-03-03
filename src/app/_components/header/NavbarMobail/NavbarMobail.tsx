@@ -10,7 +10,7 @@ import menuLogo from '../../../../../public/icons/chevron-up.svg';
 import styles from './NavbarMobail.module.scss';
 import useDropdown from "@/app/_hooks/useDropDown";
 import DropDown from "@/app/_components/DropDown/DropDown";
-import menuIconUp from '../../../../../public/icons/chevron-down.svg'
+import menuIconUp from '../../../../../public/icons/chevron-up.svg'
 import MobileDropDown from "@/app/_components/DropDown/MobileDropDown/MobileDropDown";
 import {NavbarMobailProps} from "@/app/_type/type";
 
@@ -36,7 +36,7 @@ const NavbarMobail: FC<NavbarMobailProps> = ({ isOpen, setIsOpen,categories }) =
                                         onClick={() => handleDropdownToggle(label)}
                                         ref={dropdownRef}>
 
-                                        {label}{openDropdown !== label ? <Image src={menuIconUp} alt={menuIconUp}
+                                        {label}{openDropdown === label ? <Image src={menuIconUp} alt={menuIconUp}
                                         style={{
                                             position: "absolute",
                                             top: "8px",
@@ -48,13 +48,13 @@ const NavbarMobail: FC<NavbarMobailProps> = ({ isOpen, setIsOpen,categories }) =
                                         left: "46px",
                                     }}/>}
                                         {openDropdown === label &&
-                                            <MobileDropDown>{categories?.map(({id, name}) => <li key={id}>{name}</li>)}</MobileDropDown>}
+                                            <DropDown variant='mobail'>{categories?.map(({id, name}) => <li key={id}>{name}</li>)}</DropDown>}
                                     </li>
                         ) : (
-                                <li key={href}>
-                                    <Link href={href || '#'}>{label}</Link>
+                                <li key={href} >
+                                    <Link  key={href} href={href || '#'}>{label}</Link>
                                 </li>
-                            ),
+                            )
                         )}
                     </ul>
                 </div>
