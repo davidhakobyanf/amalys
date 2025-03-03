@@ -1,9 +1,7 @@
-import React, { FC } from 'react';
-import styles from './DropDown.module.scss';
+import React, {FC} from 'react';
 import {DropDownProps} from "@/app/_type/type";
-
-
-const DropDown: FC<DropDownProps> = ({ children }) => {
+import  styles from './MobileDropDown.module.scss'
+const MobileDropDown:FC<DropDownProps>  = ({children}) => {
     return (
         <div className={styles.dropdown}>
             <ul className={styles.dropdown__content}>{children}</ul>
@@ -11,4 +9,4 @@ const DropDown: FC<DropDownProps> = ({ children }) => {
     );
 };
 
-export default DropDown;
+export default MobileDropDown;

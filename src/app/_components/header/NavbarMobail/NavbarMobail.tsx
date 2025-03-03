@@ -8,16 +8,18 @@ import Search from '../../Search/Search';
 import Link from 'next/link';
 import menuLogo from '../../../../../public/icons/chevron-up.svg';
 import styles from './NavbarMobail.module.scss';
+import useDropdown from "@/app/_hooks/useDropDown";
+import DropDown from "@/app/_components/DropDown/DropDown";
+import menuIconUp from '../../../../../public/icons/chevron-down.svg'
+import MobileDropDown from "@/app/_components/DropDown/MobileDropDown/MobileDropDown";
+import {NavbarMobailProps} from "@/app/_type/type";
 
-interface NavbarMobailProps {
-    isOpen: boolean;
-    setIsOpen: (value: boolean | ((prev: boolean) => boolean)) => void;
-}
-const NavbarMobail: FC<NavbarMobailProps> = ({ isOpen, setIsOpen }) => {
+const NavbarMobail: FC<NavbarMobailProps> = ({ isOpen, setIsOpen,categories }) => {
     const handleCLose = () => {
         setIsOpen((prev: boolean) => !prev);
     };
     const { searchCheck } = useSearch();
+    const { openDropdown, handleDropdownToggle, dropdownRef } = useDropdown();
 
     return (
         <div className={`${styles.navbar__mobail} ${isOpen ? styles.active : ''}`}>
@@ -30,10 +32,25 @@ const NavbarMobail: FC<NavbarMobailProps> = ({ isOpen, setIsOpen }) => {
                     <ul className={styles.navbar__mobail__wrapper}>
                         {menuData.map(({ href, label, icon }) =>
                             icon ? (
-                                <li key={label} className={styles.menu__wrapper}>
-                                    {label} <Image src={icon} alt={icon} />
-                                </li>
-                            ) : (
+                                    <li key={label} className={styles.menu__wrapper}
+                                        onClick={() => handleDropdownToggle(label)}
+                                        ref={dropdownRef}>
+
+                                        {label}{openDropdown !== label ? <Image src={menuIconUp} alt={menuIconUp}
+                                        style={{
+                                            position: "absolute",
+                                            top: "8px",
+                                            left: "46px"
+                                        }}
+                                    /> :    <Image src={icon} alt={icon} style={{
+                                        position: "absolute",
+                                        top: "7px",
+                                        left: "46px",
+                                    }}/>}
+                                        {openDropdown === label &&
+                                            <MobileDropDown>{categories?.map(({id, name}) => <li key={id}>{name}</li>)}</MobileDropDown>}
+                                    </li>
+                        ) : (
                                 <li key={href}>
                                     <Link href={href || '#'}>{label}</Link>
                                 </li>

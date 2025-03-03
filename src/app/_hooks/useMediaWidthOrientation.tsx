@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import usePathNavigate from "@/app/_hooks/usePathNavigate";
 
 interface useMediaWidthOrientationType {
     isMobile: boolean;
@@ -6,25 +7,38 @@ interface useMediaWidthOrientationType {
 }
 
 const useMediaWidthOrientation = (): useMediaWidthOrientationType => {
-    const [isMobile, setIsMobile] = useState<boolean>(false);
-    const [isScrolled, setIsScrolled] = useState<boolean>(false);
-    console.log(isScrolled, 'isScrolled');
+    const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 1200);
+    const [isScrolled, setIsScrolled] = useState<boolean>(window.innerWidth < 1200);
+    const { isHomePage } = usePathNavigate();
     const handleResize = () => {
-        setIsMobile(window.innerWidth < 1200);
+        const mobile = window.innerWidth < 1200;
+        setIsMobile(mobile);
+        if (mobile) {
+            setIsScrolled(true);
+        } else {
+            setIsScrolled(window.scrollY > 50);
+        }
     };
 
     const handleScroll = () => {
-        setIsScrolled(window.scrollY > 50);
+        if (!isMobile) {
+            setIsScrolled(window.scrollY > 50);
+        }
     };
+
     useEffect(() => {
         window.addEventListener('resize', handleResize);
-        window.addEventListener('scroll', handleScroll);
+        handleResize();
+
+        if (!isHomePage && !isMobile) {
+            window.addEventListener('scroll', handleScroll);
+        }
 
         return () => {
             window.removeEventListener('resize', handleResize);
             window.removeEventListener('scroll', handleScroll);
         };
-    }, []);
+    }, [isHomePage, isMobile]);
 
     return { isMobile, isScrolled };
 };

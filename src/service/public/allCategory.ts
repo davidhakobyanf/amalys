@@ -1,13 +1,11 @@
 export const getAllCategories = async () => {
     try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}all-category`);
-        if (!response.ok) {
-            throw new Error('Ошибка при загрузке категорий');
-        }
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/all-category`);
         const data = await response.json();
+        console.log(data,'data')
         return data;
     } catch (error) {
-        console.error(error);
+        console.error(`Ошибка при загрузке категорий ${error}`);
         throw error;
     }
 };
