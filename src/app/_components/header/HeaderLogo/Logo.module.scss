@@ -1,0 +1,97 @@
+.logoContainer {
+  padding-left: 64px;
+  box-shadow: rgba(164, 164, 164, 0.3) 0px;
+  .cloudLogo {
+    position: absolute;
+    top: 106px;
+    left: 178px;
+    scale: 1.2;
+    transition: all 0.8s ease-in-out;
+  }
+
+  .hidden {
+    opacity: 0;
+    transform: scale(0.5) translateY(-20px);
+    top: 0;
+    left: 0;
+    pointer-events: none;
+  }
+
+  .logo {
+    width: 127px;
+    height: 213px;
+    object-fit: contain;
+    background-color: transparent;
+    position: relative;
+
+    &.home {
+      transform: scale(1.5) translateY(85px) translateX(125px);
+      transition: transform 0.8s ease-in-out, top 0.8s ease-in-out;
+    }
+
+    &.scrolled {
+      transform: scale(1);
+      top: 0;
+      transition: transform 0.8s ease-in-out, top 0.8s ease-in-out;
+    }
+  }
+}
+
+@media screen and (max-width:1600px) {
+  .logoContainer{
+    .logo{
+      height: 150px;
+      &.home {
+        transform: scale(1.5) translateY(74px) translateX(84px) ;
+      }
+    }
+    .cloudLogo {
+      position: absolute;
+      top: 70px;
+      left: 111px;
+      scale: 0.7;
+      transition: all .8s ease-in-out;
+    }
+
+    .hidden {
+      opacity: 0;
+      transform: scale(.5) translateX(-130px) translateY(-90px);
+      top: 0;
+      left: 0;
+      pointer-events: none;
+    }
+  }
+}
+@media screen and (max-width:1400px) {
+  .logoContainer{
+    padding-left: 0px;
+    .cloudLogo {
+      position: absolute;
+      top: 41px;
+      left: 13px;
+      scale: 0.7;
+      transition: all .8s ease-in-out;
+    }
+
+    .hidden {
+      opacity: 0;
+      transform: scale(0.5) translateX(-180px) translateY(-40px);
+      top: 0;
+      left: 0;
+      pointer-events: none;
+    }
+    .logo{
+      width:100px;
+      &.home {
+        transform: scale(1.3) translateY(55px) translateX(77px) ;
+      }
+    }
+  }
+}
+@media screen and (max-width:375px){
+  .logoContainer{
+    .logo{
+      width: 70px;
+    }
+  }
+}

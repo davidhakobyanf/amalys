@@ -1,11 +1,27 @@
-'use server'
-// components/Header/HeaderServer.tsx
-import { getAllCategories } from '@/service/public/allCategory';
-import HeaderClient from "@/app/_components/header/HeaderClient/HeaderClient";
+'use server';
 
-const HeaderServer = async () => {
-        const data = await getAllCategories()
-        return <HeaderClient categories={data} />;
+import Logo from './HeaderLogo/Logo';
+import HeaderCategories from './HeaderCategories/HeaderCategories';
+import HeaderActions from "@/app/_components/header/HeaderActions/HeaderActions";
+import HeaderContent from "@/app/_components/header/HeaderContent/HeaderContent";
+import styles from './Header.module.scss';
+
+const HeaderServer =  () => {
+    return (
+        <>
+            <header className={styles.header}>
+                <div className={`mainGrid ${styles.header__container}`}>
+                    <div className={styles.header__nav}>
+                        <Logo/>
+                        <HeaderCategories/>
+                    </div>
+                    <HeaderActions />
+                </div>
+            </header>
+            <HeaderContent/>
+        </>
+
+    );
 };
 
 export default HeaderServer;

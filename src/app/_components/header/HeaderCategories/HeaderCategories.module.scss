@@ -1,0 +1,36 @@
+.header__nav {
+  display: flex;
+  .nav__wrapper {
+    width: 376px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 40px;
+    > * {
+      color: #000;
+      font-family: 'FiraGO', sans-serif;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      cursor: pointer;
+
+      > * {
+        color: inherit;
+        font-family: inherit;
+        font-size: inherit;
+        font-style: inherit;
+        font-weight: inherit;
+        line-height: inherit;
+      }
+    }
+  }
+}
+@media screen and (max-width: 1024px) {
+  .header__nav {
+    .nav__wrapper {
+      display: none;
+    }
+  }
+}

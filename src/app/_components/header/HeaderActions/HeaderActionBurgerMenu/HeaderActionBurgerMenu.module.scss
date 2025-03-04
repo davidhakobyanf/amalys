@@ -1,0 +1,12 @@
+.hamburger__icon{
+  display: none;
+}
+@media screen and (max-width:1024px) {
+  .hamburger__icon{
+    position: relative;
+    display: block !important;
+    color: black;
+    z-index: 2000;
+
+  }
+}

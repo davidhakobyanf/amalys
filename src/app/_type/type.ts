@@ -1,8 +1,9 @@
-import React from "react";
+import React, {ElementType} from "react";
 
 export interface DropDownProps {
     children: React.ReactNode;
-    variant:'laptop' | 'mobail'
+    variant:'laptop' | 'mobail',
+    as?:ElementType;
 
 }
 export interface Category {
@@ -19,5 +20,10 @@ export interface HeaderClientProps {
 }
 export interface NavbarMobailProps  extends  HeaderClientProps{
     isOpen: boolean;
-    setIsOpen: (value: boolean | ((prev: boolean) => boolean)) => void;
+}
+export interface MenuDataTypes {
+    label: string;
+    href?: string;
+    icon?: any;
+    categories?:HeaderClientProps
 }
