@@ -27,7 +27,7 @@ body {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    font-family: FiraGO-Regular;
+    font-family: FiraGO-Regular, sans-serif ;
 }
 
 a {
@@ -43,7 +43,7 @@ a {
 } */
 .mainGrid {
     padding-inline: 16px;
-    width: min(1920px, 100%);
+    width: min(1412px, 100%);
     margin-inline: auto;
 }
 :root {
@@ -62,4 +62,9 @@ body {
 ul,
 li {
     all: unset;
+}
+.video-stream .html5-main-video {
+    width: 680px !important;
+    height: 474px !important;
+    top: 2px !important;
 }

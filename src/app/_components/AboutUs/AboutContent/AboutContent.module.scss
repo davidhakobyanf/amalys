@@ -1,0 +1,19 @@
+.about__content__container {
+  font-weight: 350;
+  font-size: 13px;
+  line-height: 22.4px;
+  letter-spacing: 0%;
+  span{
+    div{
+      width: 100%;
+
+    }
+  }
+}
+@media screen and (max-width: 1920px){
+  .about__content__container{
+    font-weight: 350;
+    font-size: 14px;
+    line-height: 21.4px;
+  }
+}

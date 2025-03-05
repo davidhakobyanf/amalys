@@ -1,0 +1,13 @@
+.about__us__content{
+  width: 100%;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: 1fr 1fr;
+  gap: 23px;
+}
+@media screen and (max-width: 992px){
+  .about__us__content{
+    grid-template-columns: 1fr;
+  }
+}

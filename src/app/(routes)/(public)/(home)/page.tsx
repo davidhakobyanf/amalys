@@ -1,17 +1,13 @@
-import React from 'react';
+"use server"
+import BlockCloudContainer from "@/app/_components/BlockCloudContainer/BlockCloudContainer";
+import AboutUs from "@/app/_components/AboutUs/AboutUs";
+import RecommendedProducts from "@/app/_components/RecommendedProducts/RecommendedProducts";
 
 const HomePage = () => {
     return (
-        <div>
-            <h1>Home Page</h1>
-            <h1>Home Page</h1> <h1>Home Page</h1> <h1>Home Page</h1> <h1>Home Page</h1> <h1>Home Page</h1>{' '}
-            <h1>Home Page</h1>
-            <h1>Home Page</h1> <h1>Home Page</h1> <h1>Home Page</h1> <h1>Home Page</h1> <h1>Home Page</h1>
-            <h1>Home Page</h1> <h1>Home Page</h1> <h1>Home Page</h1> <h1>Home Page</h1> <h1>Home Page</h1>{' '}
-            <h1>Home Page</h1> <h1>Home Page</h1> <h1>Home Page</h1> <h1>Home Page</h1> <h1>Home Page</h1>{' '}
-            <h1>Home Page</h1>
-            <h1>Home Page</h1> <h1>Home Page</h1> <h1>Home Page</h1> <h1>Home Page</h1> <h1>Home Page</h1>{' '}
-            <h1>Home Page</h1> <h1>Home Page</h1> <h1>Home Page</h1> <h1>Home Page</h1>
+        <div className={`mainGrid`}>
+            <AboutUs />
+            <RecommendedProducts />
         </div>
     );
 };
