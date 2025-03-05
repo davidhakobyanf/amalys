@@ -11,7 +11,6 @@ import styles from './Logo.module.scss';
 const Logo = () => {
   const { isScrolled } = useMediaWidthOrientation();
   const { isHomePage } = usePathNavigate();
-    console.log(isHomePage,'isHomePage')
   return (
     <Link href="/" className={styles.logoContainer}>
       {isHomePage === false && <Image src={cloudsLogo} alt="cloudsLogo" className={`${styles.cloudLogo} ${isScrolled ? styles.hidden : ''}`} />}

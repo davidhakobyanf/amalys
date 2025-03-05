@@ -8,7 +8,6 @@ import logo from "@/app/_components/header/HeaderLogo/Logo";
 
 const HeaderCategories = async () => {
       const data = await getAllCategories();
-    console.log(data,'data')
   return (
     <div className={styles.header__nav}>
       <ul className={styles.nav__wrapper}>

@@ -4,7 +4,6 @@ import styles from './AboutContent.module.scss';
 
 const AboutContent = async  () => {
     const {about} = await getAboutContent()
-    console.log(about.text,'content')
     return (
         <div className={styles.about__content__container}>
                     <span dangerouslySetInnerHTML={{__html: about?.text}}/>
