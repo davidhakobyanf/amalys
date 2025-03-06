@@ -3,7 +3,7 @@
   position: relative;
   display: flex;
   justify-content: center;
-  p{
+  .block__p{
     color: #000;
     position: absolute;
     width: fit-content;
@@ -12,5 +12,31 @@
     font-weight: bolder;
     font-size: 32px;
     text-align: center;
+  }
+  .miniblock__p{
+    color: #000;
+    font-family: FiraGO-Medium, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    text-align: center;
+    line-height: normal;
+    position: relative;
+    top: 5px;
+
+  }
+}
+.miniblock {
+  position: relative;
+  margin-top: 10px;
+  img:nth-child(1) {
+    position: absolute;
+    top: -16px;
+    right: 28%;
+  }
+  img:nth-child(2) {
+    position: absolute;
+    top: -16px;
+    left: 28%;
   }
 }

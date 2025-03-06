@@ -1,0 +1,12 @@
+.recomended__products__content__leftblock {
+  display: block;
+  width: calc(100% / 4);
+  .recomended__products__content__img {
+    object-fit: contain;
+    width: fit-content;
+    margin: auto;
+    width: 200px;
+    display: block;
+    height: fit-content;
+  }
+}
