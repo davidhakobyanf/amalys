@@ -1,4 +1,3 @@
-'use client'
 import { useEffect, useState } from 'react';
 import usePathNavigate from "@/app/_hooks/usePathNavigate";
 
@@ -8,37 +7,40 @@ interface useMediaWidthOrientationType {
 }
 
 const useMediaWidthOrientation = (): useMediaWidthOrientationType => {
-    const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 1200);
-    const [isScrolled, setIsScrolled] = useState<boolean>(window.innerWidth < 1200);
+    const [isMobile, setIsMobile] = useState<boolean>(false);
+    const [isScrolled, setIsScrolled] = useState<boolean>(false);
     const { isHomePage } = usePathNavigate();
-    const handleResize = () => {
-        const mobile = window.innerWidth < 1200;
-        setIsMobile(mobile);
-        if (mobile) {
-            setIsScrolled(true);
-        } else {
-            setIsScrolled(window.scrollY > 50);
-        }
-    };
-
-    const handleScroll = () => {
-        if (!isMobile) {
-            setIsScrolled(window.scrollY > 50);
-        }
-    };
 
     useEffect(() => {
-        window.addEventListener('resize', handleResize);
-        handleResize();
+        if (typeof window !== 'undefined') {
+            const handleResize = () => {
+                const mobile = window.innerWidth < 1200;
+                setIsMobile(mobile);
+                if (mobile) {
+                    setIsScrolled(true);
+                } else {
+                    setIsScrolled(window.scrollY > 50);
+                }
+            };
 
-        if (!isHomePage && !isMobile) {
-            window.addEventListener('scroll', handleScroll);
+            const handleScroll = () => {
+                if (!isMobile) {
+                    setIsScrolled(window.scrollY > 50);
+                }
+            };
+
+            window.addEventListener('resize', handleResize);
+            handleResize();  // Вызываем сразу, чтобы установить начальные значения
+
+            if (!isHomePage && !isMobile) {
+                window.addEventListener('scroll', handleScroll);
+            }
+
+            return () => {
+                window.removeEventListener('resize', handleResize);
+                window.removeEventListener('scroll', handleScroll);
+            };
         }
-
-        return () => {
-            window.removeEventListener('resize', handleResize);
-            window.removeEventListener('scroll', handleScroll);
-        };
     }, [isHomePage, isMobile]);
 
     return { isMobile, isScrolled };

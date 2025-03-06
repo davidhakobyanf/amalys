@@ -1,16 +1,15 @@
 "use client";
 import useDropdown from '@/app/_hooks/useDropDown';
-import React from 'react';
+import React, {FC} from 'react';
 import Image from 'next/image';
 import DropDown from '../../../DropDown/DropDown';
 import Link from 'next/link';
-import styles from './HeaderCategoriesItem.module.scss'
 import {MenuDataTypes} from "@/app/_type/type";
+import styles from './HeaderCategoriesItem.module.scss'
 
 
-type HeaderCategoriesItemProps = MenuDataTypes;
 
-const HeaderCategoriesItem = ({ icon, label, href,categories }: HeaderCategoriesItemProps) => {
+const HeaderCategoriesItem:FC<MenuDataTypes> = ({ icon, label, href,categories }) => {
   const { openDropdown, handleDropdownToggle, dropdownRef } = useDropdown();
   return icon ? (
     <li key={label} onClick={() => handleDropdownToggle(label)} ref={dropdownRef} className={styles.menu__wrapper}>

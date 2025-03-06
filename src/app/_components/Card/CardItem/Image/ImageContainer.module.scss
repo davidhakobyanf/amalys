@@ -1,0 +1,21 @@
+.laptop__img{
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  overflow: hidden;
+}
+.laptop__img:hover{
+  -webkit-transform: scale(1.1);
+  -webkit-transition: .3s;
+}
+.images__container{
+  overflow: hidden;
+  width: 306px;
+  height: 204px;
+
+  //border-radius: 6px;
+
+}
+.image{
+
+}
